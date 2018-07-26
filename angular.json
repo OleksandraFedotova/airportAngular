@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "airport": {
+    "airportAngular": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/airport",
+            "outputPath": "dist/airportAngular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "airport:build"
+            "browserTarget": "airportAngular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "airport:build:production"
+              "browserTarget": "airportAngular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "airport:build"
+            "browserTarget": "airportAngular:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "airport-e2e": {
+    "airportAngular-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "airport:serve"
+            "devServerTarget": "airportAngular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "airport:serve:production"
+              "devServerTarget": "airportAngular:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "airport"
+  "defaultProject": "airportAngular"
 }

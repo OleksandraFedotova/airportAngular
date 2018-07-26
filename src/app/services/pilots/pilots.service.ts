@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Pilot } from '../../components/pilots/pilot';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PilotServiceService {
+export class PilotsService {
   private url = 'http://localhost:5000/api/Pilots';
 
   constructor(private http: HttpClient) { }

@@ -23,13 +23,13 @@ export class CrewsService {
   }
 
   createCrew(crew: Crew) {
-    return this.http.post<Crew>(this.url, crew);
+    return this.http.post<Crew>(this.url, crew).subscribe();
   }
   updateCrew(id: string, crew: Crew) {
     debugger;
-    return this.http.put<Crew>(this.url + "/" + id, crew);//, { params: urlParams});
+    return this.http.put<Crew>(this.url + "/" + id, crew).subscribe();//, { params: urlParams});
   }
   deleteCrew(id: string) {
-    return this.http.delete(this.url + "/" + id); //, { params: urlParams});
+    return this.http.delete(this.url + "/" + id).subscribe(); //, { params: urlParams});
   }
 }

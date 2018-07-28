@@ -22,13 +22,13 @@ export class FlightsService {
   }
 
   createFlight(flight: Flight) {
-    return this.http.post<Flight>(this.url, flight);
+    return this.http.post<Flight>(this.url, flight).subscribe();
   }
   updateFlight(id: string, flight: Flight) {
-    return this.http.put<Flight>(this.url + "/" + id, flight);//, { params: urlParams});
+    return this.http.put<Flight>(this.url + "/" + id, flight).subscribe();//, { params: urlParams});
   }
   deleteFlight(id: string) {
-    return this.http.delete(this.url + "/" + id);  //, { params: urlParams});
+    return this.http.delete(this.url + "/" + id).subscribe();  //, { params: urlParams});
   }
 
 }

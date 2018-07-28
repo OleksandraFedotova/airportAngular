@@ -22,12 +22,12 @@ export class DeparturesService {
   }
 
   createDeparture(departure: Departure) {
-    return this.http.post<Departure>(this.url, departure);
+    return this.http.post<Departure>(this.url, departure).subscribe();
   }
   updateDeparture(id: string, departure: Departure) {
-    return this.http.put<Departure>(this.url + "/" + id, departure);//, { params: urlParams});
+    return this.http.put<Departure>(this.url + "/" + id, departure).subscribe();//, { params: urlParams});
   }
   deleteDeparture(id: string) {
-    return this.http.delete(this.url + "/" + id);  //, { params: urlParams});
+    return this.http.delete(this.url + "/" + id).subscribe();  //, { params: urlParams});
   }
 }

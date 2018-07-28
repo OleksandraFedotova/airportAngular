@@ -3,3 +3,6 @@ export class Ticket {
     price: number;
     flightNumber: string;
 }
+export class TicketList{
+    tickets: Ticket[];
+}

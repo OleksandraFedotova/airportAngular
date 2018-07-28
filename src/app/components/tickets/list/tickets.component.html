@@ -1,3 +1,12 @@
 <p>
   tickets works!
 </p>
+
+<ul  *ngIf="tickets != null">
+
+  <li class="pilot" *ngFor="let ticket of tickets.tickets" class="btn" (click)="goToDetail(ticket.id)">
+     <p>{{ticket.id}}</p>
+     <p>{{ticket.price}}</p>
+     <p>{{ticket.flightNumber}}</p>
+ </li>
+</ul>

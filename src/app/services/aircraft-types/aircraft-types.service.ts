@@ -22,12 +22,12 @@ export class AircraftTypesService {
   }
 
   createAircraftType(aircraftType: AircraftType) {
-    return this.http.post<AircraftType> (this.url, aircraftType);
+    return this.http.post<AircraftType> (this.url, aircraftType).subscribe();
   }
   updateAircraftType(id: string, aircraftType: AircraftType) {
-    return this.http.put<AircraftType> (this.url + "/" + id, aircraftType)//, { params: urlParams});
+    return this.http.put<AircraftType> (this.url + "/" + id, aircraftType).subscribe();//, { params: urlParams});
   }
   deleteAircraftType(id: string) {
-    return this.http.delete(this.url + "/" + id); //, { params: urlParams});
+    return this.http.delete(this.url + "/" + id).subscribe(); //, { params: urlParams});
   }
 }

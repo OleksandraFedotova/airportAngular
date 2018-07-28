@@ -1,10 +1,11 @@
 <p>
   aircraft-types works!
 </p>
-<li class=" aircraft" *ngFor="let  aircraft-types of  aircraft-types. aircraft-types" class="btn" (click)="goToDetail( aircraft-type.id)">
-  <p>{{ aircraft-types.id}}</p>
-  <p>{{aircraft-type.model}}</p>
-  <p>{{aircraft-type.places}}</p>
-  <p>{{aircraft-type.carrying}}</p>
+<ul>
+<li class=" aircraft" *ngFor="let  aircrafType of  aircraftTypes.aircraftTypes" class="btn" (click)="goToDetail( aircrafType.id)">
+  <p>{{aircrafType.id}}</p>
+  <p>{{aircrafType.model}}</p>
+  <p>{{aircrafType.places}}</p>
+  <p>{{aircrafType.carrying}}</p>
 </li>
 </ul>

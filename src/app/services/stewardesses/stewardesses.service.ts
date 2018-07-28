@@ -23,12 +23,12 @@ export class StewardessesService {
   }
 
   createStewardess(stewardess: Stewardess) {
-    return this.http.post<Stewardess>(this.url, stewardess);
+    return this.http.post<Stewardess>(this.url, stewardess).subscribe();
   }
   updateStewardess(id: string, stewardess: Stewardess) {
-    return this.http.put<Stewardess>(this.url + "/" + id, stewardess) ;//, { params: urlParams});
+    return this.http.put<Stewardess>(this.url + "/" + id, stewardess).subscribe() ;//, { params: urlParams});
   }
   deleteStewardess(id: string) {
-    return this.http.delete(this.url + "/" + id);  //, { params: urlParams});
+    return this.http.delete(this.url + "/" + id).subscribe();  //, { params: urlParams});
   }
 }

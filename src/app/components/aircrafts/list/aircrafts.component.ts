@@ -10,14 +10,14 @@ import {AircraftsService} from '../../../services/aircraft/aircrafts.service';
 })
 export class AircraftsComponent implements OnInit {
 
-  public aircrafts: AircraftList;
+  public airCrafts: AircraftList;
   public aircraft: Aircraft = new Aircraft();
 
   constructor(private router: Router, private aircraftsService: AircraftsService) { }
 
   ngOnInit() {
     this.aircraftsService.getAircrafts()
-      .subscribe((aircrafts:AircraftList) => this.aircrafts= aircrafts);
+      .subscribe((aircrafts:AircraftList) => this.airCrafts= aircrafts);
   }
 
   create() {
@@ -26,10 +26,10 @@ export class AircraftsComponent implements OnInit {
 
   delete(id: string) {
     this.aircraftsService.deleteAircraft(id);
-    this.aircrafts.aircrafts = this.aircrafts.aircrafts.filter(i => { return i.id !== id; });
+    this.airCrafts.aircrafts = this.airCrafts.aircrafts.filter(i => { return i.id !== id; });
   }
 
   goToDetail(id: string) {
-    this.router.navigate(['/aircrafts/', id]);
+    this.router.navigate(['/aircraft-types/', id]);
   }
 }

@@ -1,3 +1,33 @@
-<p>
-  departure-component works!
-</p>
+<div >
+	<h5>Departure Information</h5>
+	<hr>
+	<div>
+		<label>Id</label>
+		<div>
+			{{departure.id}}
+		</div>
+	</div>
+	<div>
+		<label>Time</label>
+		<div>
+			<input class="form-control" name="time" [(ngModel)]="departure.time" />
+		</div>
+	</div>
+	<div>
+		<label>CrewId</label>
+		<div>
+			<input class="form-control" name="crewId" [(ngModel)]="departure.crewId" />
+		</div>
+  </div>
+  <div>
+		<label>aircraftId</label>
+		<div>
+			<input class="form-control" name="aircraftId" [(ngModel)]="departure.aircraftId" />
+		</div>
+	</div>
+    <div class="btn-box">
+            <button class="btn" (click)="update(departure.id)">Update</button>
+            <button class="btn" (click)="delete(departure.id)">Delete</button>
+        </div>
+</div>
+	

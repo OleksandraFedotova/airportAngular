@@ -2,10 +2,10 @@
   aircraft-types works!
 </p>
 <ul>
-<li class=" aircraft" *ngFor="let  aircrafType of  aircraftTypes.aircraftTypes" class="btn" (click)="goToDetail( aircrafType.id)">
+<li class=" aircraft" *ngFor="let  aircrafType of  airCraftTypes.airCraftTypes" class="btn" (click)="goToDetail( aircrafType.id)">
   <p>{{aircrafType.id}}</p>
   <p>{{aircrafType.model}}</p>
-  <p>{{aircrafType.places}}</p>
+  <p>{{aircrafType.seats}}</p>
   <p>{{aircrafType.carrying}}</p>
 </li>
 </ul>

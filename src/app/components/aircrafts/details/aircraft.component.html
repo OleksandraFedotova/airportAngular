@@ -1,3 +1,40 @@
-<p>
-  aircraft-component works!
-</p>
+<div >
+	<h5>AirCraft Information</h5>
+	<hr>
+	<div>
+		<label>Id</label>
+		<div>
+			{{aircraft.id}}
+		</div>
+	</div>
+	<div>
+		<label>Name</label>
+		<div>
+			<input class="form-control" name="name" [(ngModel)]="aircraft.name" />
+		</div>
+	</div>
+	<div>
+		<label>Aircraft Type Id</label>
+		<div>
+			<input class="form-control" name="aircraftTypeId" [(ngModel)]="aircraft.typeId" />
+		</div>
+	</div>
+	<div>
+		<label>Timespan</label>
+		<div>
+          <input class="form-control" name="timespan" [(ngModel)]="aircraft.timeSpan" />
+		</div>
+    </div>
+    <div>
+      <label>Release Date</label>
+      <div>
+            <input class="form-control" name="releaseDate" [(ngModel)]="aircraft.releaseDate" />
+      </div>
+      </div>
+    <div class="btn-box">
+            <button class="btn" (click)="update(aircraft.id)">Update</button>
+            <button class="btn" (click)="delete(aircraft.id)">Delete</button>
+        </div>
+</div>
+	
+	

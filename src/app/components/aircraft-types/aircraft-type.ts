@@ -1,9 +1,9 @@
 export class AircraftType {
     id: string;
     model: string;
-    places: number;
-    carrying: number;
+    seats: number;
+    loadCapacity: number;
 }
 export class AircraftTypeList{
-    aircraftTypes:AircraftType[];
+    airCraftTypes:AircraftType[];
 }

@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AircraftTypesService {
-  private url = 'http://localhost:56455/api/aircraftTypes';
+  private url = 'http://localhost:56455/api/AirCraftTypes';
 
   constructor(private http: HttpClient) { }
 

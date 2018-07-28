@@ -1,3 +1,28 @@
-<p>
-  flight-component works!
-</p>
+<div >
+	<h5>Flight Information</h5>
+	<hr>
+	<div>
+		<label>Id</label>
+		<div>
+			{{flight.id}}
+		</div>
+	</div>
+	<div>
+		<label>Price</label>
+		<div>
+			<input class="form-control" name="price" [(ngModel)]="flight.price" />
+		</div>
+	</div>
+	<div>
+		<label>FlightNumber</label>
+		<div>
+			<input class="form-control" name="flightNumber" [(ngModel)]="flight.flightNumber" />
+		</div>
+	</div>
+    <div class="btn-box">
+            <button class="btn" (click)="update(flight.id)">Update</button>
+            <button class="btn" (click)="delete(flight.id)">Delete</button>
+        </div>
+</div>
+	
+	

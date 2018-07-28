@@ -11,7 +11,7 @@ import {Location} from '@angular/common';
 })
 export class AircraftTypeComponent implements OnInit {
 
-  aircraftType: AircraftType = new AircraftType();
+  airCraftType: AircraftType = new AircraftType();
   id: string;
 
   constructor(private aircraftTypesService: AircraftTypesService, private route: ActivatedRoute, private location: Location) {
@@ -20,11 +20,11 @@ export class AircraftTypeComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => this.id = params['id']);
-    this.aircraftTypesService.getAircraftType(this.id).subscribe(data => this.aircraftType = data);
+    this.aircraftTypesService.getAircraftType(this.id).subscribe(data => this.airCraftType = data);
   }
 
   update(id: string){
-    this.aircraftTypesService.updateAircraftType(id, this.aircraftType);
+    this.aircraftTypesService.updateAircraftType(id, this.airCraftType);
 
   }
 

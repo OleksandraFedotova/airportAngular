@@ -1,3 +1,28 @@
-<p>
-  ticket-component works!
-</p>
+<div >
+  <h5>Ticket Information</h5>
+  <hr>
+  <div>
+    <label>Id</label>
+    <div>
+      {{ticket.id}}
+    </div>
+  </div>
+  <div>
+    <label>Price</label>
+    <div>
+      <input class="form-control" name="price" [(ngModel)]="ticket.price" />
+    </div>
+  </div>
+  <div>
+    <label>Flight Number</label>
+    <div>
+      <input class="form-control" name="flightNumber" [(ngModel)]="ticket.flightNumber" />
+    </div>
+  </div>
+    <div class="btn-box">
+            <button class="btn" (click)="update(ticket.id)">Update</button>
+            <button class="btn" (click)="delete(ticket.id)">Delete</button>
+        </div>
+</div>
+  
+  

@@ -1,3 +1,12 @@
 <p>
   pilots works!
 </p>
+
+<ul  *ngIf="pilots != null">
+
+  <li class="pilot" *ngFor="let pilot of pilots.pilots" class="btn" (click)="goToDetail(pilot.id)">
+     <p>{{pilot.id}}</p>
+     <p>{{pilot.firstName}}</p>
+     <p>{{pilot.lastName}}</p>
+ </li>
+</ul>

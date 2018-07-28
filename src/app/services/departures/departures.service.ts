@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {Departure} from '../../components/departures/departure';
+import {Departure,DepartureList} from '../../components/departures/departure';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,28 +9,25 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DeparturesService {
-  private url = 'http://localhost:5000/api/departures';
+  private url = 'http://localhost:56455/api/departures';
 
   constructor(private http: HttpClient) { }
 
-  getDepartures() {
-    return this.http.get(this.url);
+  getDepartures():Observable<DepartureList> {
+    return this.http.get<DepartureList>(this.url);
   }
 
-  getDeparture(id: number) {
-    return this.http.get(this.url + "/" + id);
+  getDeparture(id: string):Observable<Departure> {
+    return this.http.get<Departure>(this.url + "/" + id);
   }
 
   createDeparture(departure: Departure) {
-    return this.http.post(this.url, departure);
+    return this.http.post<Departure>(this.url, departure);
   }
-  updateDeparture(id: number, departure: Departure) {
-    //const urlParams = new HttpParams().set("id", id.toString());
-    debugger;
-    return this.http.put(this.url + "/" + id, departure) //, { params: urlParams});
+  updateDeparture(id: string, departure: Departure) {
+    return this.http.put<Departure>(this.url + "/" + id, departure);//, { params: urlParams});
   }
-  deleteDeparture(id: number) {
-    //const urlParams = new HttpParams().set("id", id.toString());
+  deleteDeparture(id: string) {
     return this.http.delete(this.url + "/" + id);  //, { params: urlParams});
   }
 }

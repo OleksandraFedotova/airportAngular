@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import{AircraftList,Aircraft} from '../aircraft';
+import {AircraftsService} from '../../../services/aircraft/aircrafts.service';
 
 @Component({
   selector: 'app-aircrafts',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AircraftsComponent implements OnInit {
 
-  constructor() { }
+  public aircrafts: AircraftList;
+  public aircraft: Aircraft = new Aircraft();
+
+  constructor(private router: Router, private aircraftsService: AircraftsService) { }
 
   ngOnInit() {
+    this.aircraftsService.getAircrafts()
+      .subscribe((aircrafts:AircraftList) => this.aircrafts= aircrafts);
   }
 
+  create() {
+    this.aircraftsService.createAircraft(this.aircraft);
+  }
+
+  delete(id: string) {
+    this.aircraftsService.deleteAircraft(id);
+    this.aircrafts.aircrafts = this.aircrafts.aircrafts.filter(i => { return i.id !== id; });
+  }
+
+  goToDetail(id: string) {
+    this.router.navigate(['/aircrafts/', id]);
+  }
 }

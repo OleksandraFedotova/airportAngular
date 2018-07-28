@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Pilot } from '../../components/pilots/pilot';
+
+import { PilotsList,Pilot } from '../../components/pilots/pilot';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,29 +10,32 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PilotsService {
-  private url = 'http://localhost:5000/api/Pilots';
+  private headers: HttpHeaders;
+  private url = 'http://localhost:56455/api/pilots';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
+   }
 
-  getPilots() {
-    return this.http.get(this.url);
+  getPilots() : Observable<PilotsList> {
+    return this.http.get<PilotsList>(this.url);
   }
+  
 
-  getPilot(id: number) {
-    return this.http.get(this.url + "/" + id);
+  getPilot(id: string): Observable<Pilot> {
+    return this.http.get<Pilot>(this.url +'/'+ id);
   }
 
   createPilot(pilot: Pilot) {
-    return this.http.post(this.url, pilot);
+    this.http.post<Pilot>(this.url, pilot).subscribe();
   }
-  updatePilot(id: number, pilot: Pilot) {
-    //const urlParams = new HttpParams().set("id", id.toString());
-    debugger;
-    return this.http.put(this.url + "/" + id, pilot) //, { params: urlParams});
+
+  updatePilot(id: string, pilot: Pilot) {
+    this.http.put<Pilot>(this.url +'/'+ id, pilot).subscribe();//, { params: urlParams});
   }
-  deletePilot(id: number) {
-    //const urlParams = new HttpParams().set("id", id.toString());
-    return this.http.delete(this.url + "/" + id);  //, { params: urlParams});
+
+  deletePilot(id: string) {
+    this.http.delete(this.url +'/'+ id).subscribe();//, { params: urlParams});
   }
 
 }

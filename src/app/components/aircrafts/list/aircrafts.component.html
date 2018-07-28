@@ -1,3 +1,10 @@
 <p>
   aircrafts works!
 </p>
+<li class=" aircraft" *ngFor="let  aircraft of  aircrafts. aircrafts" class="btn" (click)="goToDetail( aircraft.id)">
+  <p>{{ aircraft.id}}</p>
+  <p>{{aircraft.aircraftTypeId}}</p>
+  <p>{{aircraft.timespan}}</p>
+  <p>{{aircraft.name}}</p>
+</li>
+</ul>

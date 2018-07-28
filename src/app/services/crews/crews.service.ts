@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {Crew} from '../../components/crews/crew';
+import {Crew,CrewList} from '../../components/crews/crew';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,28 +10,26 @@ import { map } from 'rxjs/operators';
 })
 export class CrewsService {
 
-  private url = 'http://localhost:5000/api/crews';
+  private url = 'http://localhost:56455/api/crews';
 
   constructor(private http: HttpClient) { }
 
-  getCrews() {
-    return this.http.get(this.url);
+  getCrews():Observable<CrewList> {
+    return this.http.get<CrewList>(this.url);
   }
 
-  getCrew(id: number) {
-    return this.http.get(this.url + "/" + id);
+  getCrew(id: string):Observable<Crew> {
+    return this.http.get<Crew>(this.url + "/" + id);
   }
 
   createCrew(crew: Crew) {
-    return this.http.post(this.url, crew);
+    return this.http.post<Crew>(this.url, crew);
   }
-  updateCrew(id: number, crew: Crew) {
-    //const urlParams = new HttpParams().set("id", id.toString());
+  updateCrew(id: string, crew: Crew) {
     debugger;
-    return this.http.put(this.url + "/" + id, crew) //, { params: urlParams});
+    return this.http.put<Crew>(this.url + "/" + id, crew);//, { params: urlParams});
   }
-  deleteCrew(id: number) {
-    //const urlParams = new HttpParams().set("id", id.toString());
-    return this.http.delete(this.url + "/" + id);  //, { params: urlParams});
+  deleteCrew(id: string) {
+    return this.http.delete(this.url + "/" + id); //, { params: urlParams});
   }
 }

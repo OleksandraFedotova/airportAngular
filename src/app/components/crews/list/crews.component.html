@@ -1,3 +1,11 @@
 <p>
   crews works!
 </p>
+<li class="flight" *ngFor="let crew of crews.crews" class="btn" (click)="goToDetail(crew.id)">
+  <p>{{crew.id}}</p>
+  <div *ngFor="let stewardess in crew.stewardessesId">
+    <p>{{stewardess.id}}</p>
+  </div>  
+  <p>{{crew.pilotId}}</p>
+</li>
+</ul>

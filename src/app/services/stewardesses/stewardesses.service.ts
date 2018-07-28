@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {Stewardess} from '../../components/stewardesses/stewardess';
+import {Stewardess,StewardessList} from '../../components/stewardesses/stewardess';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,28 +10,25 @@ import { map } from 'rxjs/operators';
 })
 export class StewardessesService {
 
-  private url = 'http://localhost:5000/api/stewardesses';
+  private url = 'http://localhost:56455/api/stewardesses';
 
   constructor(private http: HttpClient) { }
 
-  getStewardesses() {
-    return this.http.get(this.url);
+  getStewardesses():Observable<StewardessList> {
+    return this.http.get<StewardessList>(this.url);
   }
 
-  getStewardess(id: number) {
-    return this.http.get(this.url + "/" + id);
+  getStewardess(id: string): Observable<Stewardess>  {
+    return this.http.get<Stewardess>(this.url + "/" + id);
   }
 
   createStewardess(stewardess: Stewardess) {
-    return this.http.post(this.url, stewardess);
+    return this.http.post<Stewardess>(this.url, stewardess);
   }
-  updateStewardess(id: number, stewardess: Stewardess) {
-    //const urlParams = new HttpParams().set("id", id.toString());
-    debugger;
-    return this.http.put(this.url + "/" + id, stewardess) //, { params: urlParams});
+  updateStewardess(id: string, stewardess: Stewardess) {
+    return this.http.put<Stewardess>(this.url + "/" + id, stewardess) ;//, { params: urlParams});
   }
-  deleteStewardess(id: number) {
-    //const urlParams = new HttpParams().set("id", id.toString());
+  deleteStewardess(id: string) {
     return this.http.delete(this.url + "/" + id);  //, { params: urlParams});
   }
 }

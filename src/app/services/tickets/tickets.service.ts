@@ -10,28 +10,25 @@ import { map } from 'rxjs/operators';
 })
 export class TicketsService {
 
-  private url = 'http://localhost:5000/api/tickets';
+  private url = 'http://localhost:56455/api/tickets';
 
   constructor(private http: HttpClient) { }
 
-  getTickets() {
-    return this.http.get(this.url);
+  getTickets():Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(this.url);
   }
 
-  getTicket(id: number) {
-    return this.http.get(this.url + "/" + id);
+  getTicket(id: string):Observable<Ticket> {
+    return this.http.get<Ticket>(this.url + "/" + id);
   }
 
   createTicket(ticket: Ticket) {
-    return this.http.post(this.url, ticket);
+    return this.http.post<Ticket>(this.url, ticket);
   }
-  updateTicket(id: number, ticket: Ticket) {
-    //const urlParams = new HttpParams().set("id", id.toString());
-    debugger;
-    return this.http.put(this.url + "/" + id, ticket) //, { params: urlParams});
+  updateTicket(id: string, ticket: Ticket) {
+    return this.http.put<Ticket>(this.url + "/" + id, ticket) ;//, { params: urlParams});
   }
-  deleteTicket(id: number) {
-    //const urlParams = new HttpParams().set("id", id.toString());
+  deleteTicket(id: string) {
     return this.http.delete(this.url + "/" + id);  //, { params: urlParams});
   }
 }

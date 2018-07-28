@@ -1,3 +1,12 @@
 <p>
   stewardesses works!
 </p>
+<ul  *ngIf="stewardesses != null">
+
+  <li class="stewardess" *ngFor="let stewardess of stewardesses.stewardesses" class="btn" (click)="goToDetail(stewardess.id)">
+     <p>{{stewardess.id}}</p>
+     <p>{{stewardess.firstName}}</p>
+     <p>{{stewardess.lastName}}</p>
+     <p>{{stewardess.birthDate}}</p>
+ </li>
+</ul>

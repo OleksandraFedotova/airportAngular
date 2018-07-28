@@ -1,3 +1,12 @@
 <p>
   departures works!
 </p>
+<ul  *ngIf="flight != null">
+
+	<li class="departure" *ngFor="let departure of departures.departures" class="btn" (click)="goToDetail(departure.id)">
+	   <p>{{flight.id}}</p>
+	   <p>{{flight.time}}</p>
+	   <p>{{flight.crewId}}</p>
+	   <p>{{flight.aircraftId}}</p>
+   </li>
+  </ul>

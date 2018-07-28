@@ -1,0 +1,40 @@
+<div >
+	<h5>Pilot Information</h5>
+	<hr>
+	<div>
+		<label>Id</label>
+		<div>
+			{{pilot.id}}
+		</div>
+	</div>
+	<div>
+		<label>FirstName</label>
+		<div>
+			<input class="form-control" name="firstName" [(ngModel)]="pilot.firstName" />
+		</div>
+	</div>
+	<div>
+		<label>LastName</label>
+		<div>
+			<input class="form-control" name="lastName" [(ngModel)]="pilot.lastName" />
+		</div>
+	</div>
+	<div>
+		<label>BirthDate</label>
+		<div>
+          <input class="form-control" name="dateOfBirth" [(ngModel)]="pilot.dateOfBirth" />
+		</div>
+    </div>
+    <div>
+		<label>Experience</label>
+		<div>
+           <input class="form-control" name="experience" [(ngModel)]="pilot.experience" />
+		</div>
+    </div>
+    <div class="btn-box">
+            <button class="btn" (click)="update(pilot.id)">Update</button>
+            <button class="btn" (click)="delete(pilot.id)">Delete</button>
+        </div>
+</div>
+	
+	

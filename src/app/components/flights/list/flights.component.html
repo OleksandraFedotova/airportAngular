@@ -1,3 +1,13 @@
-<p>
-  flights works!
-</p>
+
+<h5>Flights</h5>
+<ul  *ngIf="flight != null">
+
+	<li class="flight" *ngFor="let flight of flights.flights" class="btn" (click)="goToDetail(flight.id)">
+	   <p>{{flight.id}}</p>
+	   <p>{{flight.name}}</p>
+	   <p>{{flight.departurePoint}}</p>
+	   <p>{{flight.destination}}</p>
+	   <p>{{flight.arrivalTime}}</p>
+	   <p>{{flight.departureTime}}</p>
+   </li>
+  </ul>

@@ -1,3 +1,6 @@
+import { Injectable } from "@angular/core";
+
+@Injectable()
 export class Pilot {
     id: string;
     firstName: string;
@@ -5,6 +8,7 @@ export class Pilot {
     dateOfBirth: string;
     experience: number;
 }
+@Injectable()
 export class PilotsList{
     pilots:Pilot[];
 }

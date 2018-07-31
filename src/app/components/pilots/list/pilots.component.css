@@ -1,5 +1,8 @@
-.pilot{
-    height:100px;
+li{
     width:100%;
     min-width: 500px;
+    border:solid 1px black;
+}
+label{
+    font-weight: bold;
 }

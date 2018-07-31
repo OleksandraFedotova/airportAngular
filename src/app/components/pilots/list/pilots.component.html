@@ -5,8 +5,35 @@
 <ul  *ngIf="pilots != null">
 
   <li class="pilot" *ngFor="let pilot of pilots.pilots" class="btn" (click)="goToDetail(pilot.id)">
-     <p>{{pilot.id}}</p>
-     <p>{{pilot.firstName}}</p>
-     <p>{{pilot.lastName}}</p>
+    <div>
+      <label>Id</label>
+      <div>
+        {{pilot.id}}
+      </div>
+    </div>
+    <div>
+      <label>FirstName</label>
+      <div>
+       {{pilot.firstName}}
+      </div>
+    </div>
+    <div>
+      <label>LastName</label>
+      <div>
+        {{pilot.lastName}}
+      </div>
+    </div>
+    <div>
+      <label>BirthDate</label>
+      <div>
+            {{pilot.dateOfBirth | date:"dd/MM/yyyy"}}
+      </div>
+      </div>
+      <div>
+      <label>Experience</label>
+      <div>
+            {{pilot.experience}}
+      </div>
+      </div>
  </li>
 </ul>
